@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
-
-class TaskController extends Controller
+class TodoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return string
-     */
     public function index()
     {
-        return Task::all();
+
     }
 
-    public function show($id){
-        return Todo::where('task_id','=',$id)->get();
-    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -30,8 +21,9 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        return Task::create([
-           'name'=>$request['name'],
+        return Todo::create([
+            'name'=>$request['name'],
+            'task_id'=>$request['task_id']
         ]);
     }
 
@@ -48,7 +40,7 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-         Task::where('id','=',$id)->update($request->only(['status']));
+        Todo::where('id','=',$id)->update($request->only(['isChecked']));
     }
 
     /**
@@ -59,6 +51,6 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        Task::find($id)->delete();
+        Todo::find($id)->delete();
     }
 }

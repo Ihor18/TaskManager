@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('Task',\App\Http\Controllers\TaskController::class)->except(['create','edit']);
+Route::resource('Todo',\App\Http\Controllers\TodoController::class)->except(['create','edit']);

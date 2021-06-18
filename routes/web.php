@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('page');
-});
-Route::get('/', function () {
+})->name('Tasks');
+Route::get('/todos/{id}', function () {
     return view('page');
-});
-Auth::routes();
+})->name('Todos');
+
 
 

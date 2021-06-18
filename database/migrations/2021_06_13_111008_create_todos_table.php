@@ -16,6 +16,7 @@ class CreateTodosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->boolean('isChecked')->default(false);
             $table->string('task_id');
         });
     }

@@ -10,9 +10,12 @@
     <title>Task manager</title>
 </head>
 <body>
-<h1 class="text-center">Task manager</h1>
+
 <div id="app">
-    <example-component></example-component>
+
+
+    <app></app>
+    <router-view></router-view>
 </div>
 </body>
 </html>
