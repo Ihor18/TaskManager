@@ -5,6 +5,10 @@
             <input type="text" ref="newItem" placeholder="Add new item" @keydown.enter="addTodo">
             <button class="btn btn-primary" @click="addTodo">Add</button>
         </div>
+        <div class="mb-3" >
+            <a href="/"><h5>Back</h5></a>
+        </div>
+
         <table class="table table-hover">
             <thead>
             <tr>
@@ -19,9 +23,9 @@
                 <td><input style="margin-left: 10px;width:20px;height:20px" class="form-check-input"
                            type="checkbox" id="flexCheckChecked" v-bind:checked="item.isChecked"
                            @click="updateChecked(item.id,item.isChecked);item.isChecked=!item.isChecked"></td>
-                <th>
+                <td>
                     {{ item.name }}
-                </th>
+                </td>
                 <td>
                     <button class="btn-danger" @click="removeTodo(item.id)">Delete</button>
                 </td>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('Task',\App\Http\Controllers\TaskController::class)->except(['create','edit']);
+Route::resource('Task',TaskController::class)->except(['create','edit']);
 Route::resource('Todo',\App\Http\Controllers\TodoController::class)->except(['create','edit']);
+Route::get('Task/Sort/{param}',[TaskController::class, 'sort']);

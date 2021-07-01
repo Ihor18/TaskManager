@@ -35,7 +35,9 @@ class TaskController extends Controller
         ]);
     }
 
-
+    public function sort($param){
+        return Task::where('status','=',$param)->get();
+    }
 
 
 

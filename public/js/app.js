@@ -1907,10 +1907,8 @@ __webpack_require__.r(__webpack_exports__);
     sortTask: function sortTask(param) {
       var _this2 = this;
 
-      this.list.forEach(function (item, key) {
-        if (item.status != param) {
-          _this2.list.splice(key, 1);
-        }
+      axios.get('/api/Task/Sort/' + param).then(function (response) {
+        return _this2.list = response.data;
       });
     },
     addTask: function addTask() {
@@ -1981,6 +1979,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -37895,11 +37897,13 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
         _c(
           "table",
           { staticClass: "table table-hover" },
           [
-            _vm._m(0),
+            _vm._m(1),
             _vm._v(" "),
             _vm._l(_vm.list, function(item, key) {
               return _c("tr", [
@@ -37926,7 +37930,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("th", [
+                _c("td", [
                   _vm._v(
                     "\n                " + _vm._s(item.name) + "\n            "
                   )
@@ -37955,6 +37959,14 @@ var render = function() {
     : _vm._e()
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-3" }, [
+      _c("a", { attrs: { href: "/" } }, [_c("h5", [_vm._v("Back")])])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

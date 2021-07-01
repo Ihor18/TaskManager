@@ -58,12 +58,10 @@ export default {
                 .get('/api/Task/')
                 .then(response => (this.list = response.data));
         },
-        sortTask(param){
-          this.list.forEach((item,key)=>{
-          if(item.status!=param){
-              this.list.splice(key,1);
-          }}
-          )
+        sortTask(param) {
+            axios
+                .get('/api/Task/Sort/'+param)
+                .then(response => (this.list = response.data));
         },
         addTask() {
             axios.post(

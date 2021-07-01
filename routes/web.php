@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('page');
 })->name('Tasks');
-
+Route::get('/todos/{id}', function () {
+    return view('page');
+})->name('Todos');
 
 
